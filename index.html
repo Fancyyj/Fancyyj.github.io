@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-查找算法" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/24/查找算法/" class="article-date">
+  <time datetime="2019-07-24T08:44:49.000Z" itemprop="datePublished">2019-07-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/24/查找算法/">查找算法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一-查找表"><a href="#一-查找表" class="headerlink" title="一. 查找表"></a>一. 查找表</h1><h2 id="1-定义"><a href="#1-定义" class="headerlink" title="1.定义"></a>1.定义</h2><p>查找表是由同一类型的数据元素构成的集合。<br>对于查找表的操作：<br>1）在查找表中查找某个具体的数据元素<br>2）在查找表中插入数据元素<br>3）从查找表中删除数据元素</p>
+<h2 id="2-分类"><a href="#2-分类" class="headerlink" title="2. 分类"></a>2. 分类</h2><p>1）静态查找表<br>在查找表的时候只做查找的操作，而不改动表中的数据元素，称此类查找为静态查找表。<br>2）动态查找表<br>在查找表中只做查找操作的同时进行插入数据或者删除数据的操作，称此类查找为动态查找。</p>
+<h2 id="3-关键字"><a href="#3-关键字" class="headerlink" title="3. 关键字"></a>3. 关键字</h2><p>主关键字： 某个关键字可以唯一识别一个数据元素的时候，称这个关键字为主关键字<br>次关键字： 具有不唯一性的关键字</p>
+<h1 id="二-顺序查找算法"><a href="#二-顺序查找算法" class="headerlink" title="二. 顺序查找算法"></a>二. 顺序查找算法</h1><p>从表中的最后一个元素开始，逐个和关键字作比较<br>如果匹配成功，那么查找成功<br>如果直到表中的第一个关键字查找完也没有匹配成功，那么查找失败</p>
+<p>.<img src="https://img-blog.csdnimg.cn/20190718174432935.png" alt="在这里插入图片描述"></p>
+<p>代码实现：</p>
+<pre><code>def sequence_search(array, key):
+     for i in range(len(array)):
+        if array[i] == key:
+            return i
+    return False
+
+
+array_0 = [23, 43, 12, 54, 65, 48]
+print(sequence_search(array_0, 12))</code></pre><p>运行结果为：<br><img src="https://img-blog.csdnimg.cn/20190718174605527.PNG" alt="在这里插入图片描述"></p>
+<h1 id="三-折半查找算法"><a href="#三-折半查找算法" class="headerlink" title="三. 折半查找算法"></a>三. 折半查找算法</h1><p>折半查找算法的优缺点：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190718174723285.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>eg： 对{5,13,19,21,37,56,64,75,80,88,92} 采用折半查找算法查找关键字为21 的过程：<br>(1) 先将开头设置为low ，56 设置为正中间的mid，92 设置为high<br><img src="https://img-blog.csdnimg.cn/20190718214918116.png" alt="在这里插入图片描述"><br>（2）因为21 &lt; 56， 所以区域缩小到 5~37，更新high和mid指针，low 指向5 ，mid 指向19 ， high 指向37</p>
+<p><img src="https://img-blog.csdnimg.cn/2019071821512756.png" alt="在这里插入图片描述"><br>（3）因为 19&lt; 21 所以在mid 和high 之间，然后更新mid 和 high指针，最后查找到21.<br><img src="https://img-blog.csdnimg.cn/20190718215403195.png" alt="在这里插入图片描述"></p>
+<p>折半查找的性能分析：<br>折半查找的运行过程可以看作是用二叉树来描述，通常这棵树称为“判定树”。<br>代码实现：</p>
+<pre><code>def halffind(nums, key, low, high):
+    &quot;&quot;&quot;
+    二分查找递归实现
+    &quot;&quot;&quot;
+    mid = (low + high) // 2
+    if key == nums[mid]:
+        return mid
+    if low &gt; high:
+        return False
+
+    if key &gt; nums[mid]:
+        return halffind(nums, key, mid + 1, high)
+    else:
+        return halffind(nums, key, low, mid - 1)
+
+
+if __name__ == &quot;__main__&quot;:
+    nums = [-789, -96, -53, 23, 52, 56, 520]  # 测试案例
+    key = int(input(&quot;请输入要搜索的关键字:&quot;))
+    print(halffind(nums, key, 0, len(nums)))</code></pre><p>运行结果为：<br><img src="https://img-blog.csdnimg.cn/20190718215738133.PNG" alt="在这里插入图片描述"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/24/查找算法/" data-id="cjyh06o4j0002925bqlogb6un" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-aa" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/24/aa/" class="article-date">
+  <time datetime="2019-07-24T08:38:22.000Z" itemprop="datePublished">2019-07-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/24/aa/">aa</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>aa</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/24/aa/" data-id="cjyh06o450000925biinl7i4f" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/07/24/hello-world/" class="article-date">
+  <time datetime="2019-07-24T07:55:53.207Z" itemprop="datePublished">2019-07-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/07/24/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/07/24/hello-world/" data-id="cjyh06o4e0001925bxksmsovz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/07/">July 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/07/24/查找算法/">查找算法</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/24/aa/">aa</a>
+          </li>
+        
+          <li>
+            <a href="/2019/07/24/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
