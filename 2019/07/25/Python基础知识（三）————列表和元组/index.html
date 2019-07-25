@@ -1,0 +1,315 @@
+
+
+<!DOCTYPE html>
+<html lang>
+<head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content>
+    <title>Python基础知识（三）————列表和元组 | Fancy</title>
+
+    <!-- Open Graph -->
+    <meta name="description" content="&amp;#x4E00;. &amp;#x5217;&amp;#x8868; &amp;#xFF08;&amp;#x4E00;&amp;#xFF09;.&amp;#x57FA;&amp;#x672C;&amp;#x6982;&amp;#x5FF5;&amp;#xFF1A;  &amp;#x5E8F;&amp;#x5217;&amp;#xFF1A;&amp;#x6210;&amp;#x5458;&amp;#x6709;&amp;#x5E8F;&amp;#x6392;&amp;#x5217;&amp;#x7684;&amp;#xFF0C;&amp;#x4E14;&amp;#x53EF;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python基础知识（三）————列表和元组">
+<meta property="og:url" content="http://yoursite.com/2019/07/25/Python基础知识（三）————列表和元组/index.html">
+<meta property="og:site_name" content="Fancy">
+<meta property="og:description" content="&amp;#x4E00;. &amp;#x5217;&amp;#x8868; &amp;#xFF08;&amp;#x4E00;&amp;#xFF09;.&amp;#x57FA;&amp;#x672C;&amp;#x6982;&amp;#x5FF5;&amp;#xFF1A;  &amp;#x5E8F;&amp;#x5217;&amp;#xFF1A;&amp;#x6210;&amp;#x5458;&amp;#x6709;&amp;#x5E8F;&amp;#x6392;&amp;#x5217;&amp;#x7684;&amp;#xFF0C;&amp;#x4E14;&amp;#x53EF;">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190517224123218.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190517224153449.PNG">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190517224208650.PNG">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190517224226605.PNG">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190519212543197.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190519212608810.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190519200837406.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190519200826234.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190519201350913.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190519201420664.PNG">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190519201851457.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190519201915329.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190519202611687.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190519202645597.PNG">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190519203822676.PNG">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190519210624334.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-07-25T02:26:28.132Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python基础知识（三）————列表和元组">
+<meta name="twitter:description" content="&amp;#x4E00;. &amp;#x5217;&amp;#x8868; &amp;#xFF08;&amp;#x4E00;&amp;#xFF09;.&amp;#x57FA;&amp;#x672C;&amp;#x6982;&amp;#x5FF5;&amp;#xFF1A;  &amp;#x5E8F;&amp;#x5217;&amp;#xFF1A;&amp;#x6210;&amp;#x5458;&amp;#x6709;&amp;#x5E8F;&amp;#x6392;&amp;#x5217;&amp;#x7684;&amp;#xFF0C;&amp;#x4E14;&amp;#x53EF;">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190517224123218.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70">
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:",
+  "image": "",
+  "name": "Fancy",
+  "url": "http://yoursite.com"
+}
+</script>
+    <script>
+    var algoliaEnabled = false;
+    
+</script>
+
+    
+
+    
+    
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    
+    
+    
+        <!-- stylesheets list from config.yml -->
+        
+        <link rel="stylesheet" href="/css/aloha.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
+        
+    
+
+</head>
+<body id="body" style="margin-bottom: 0;" class="pushable">
+
+    <div class="ui top fixed menu">
+        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
+    </div>
+
+    <div id="menu-sidebar" class="ui left vertical sidebar menu">
+
+    <div id="sidebar-top">
+        <div class="content">
+            <h3>Fancy</h3>
+        </div>
+    </div>
+    <div class="ui container sidebar-card">
+    <div class="ui people shape content">
+        <div class="active side">
+            <div class="ui card">
+                <div class="image">
+                    <img class="ui medium bordered image" src="/images/avatar.jpg">
+                </div>
+                <div class="content">
+                    <a class="header">Fancy</a>
+                    
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                        
+                    </div>
+
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+    
+    
+
+    
+
+    
+    <a href="/index.html" class="item">
+        <i class="home icon"></i>
+        HOME
+    </a>
+
+    
+
+    
+</div>
+
+    <div class="pusher body-content">
+        <div id="content" class="ui main container">
+            <!--<div class="ui one column grid">-->
+                <!--<div class="column">-->
+                    <!--<div class="ui main container">-->
+                        <div id="post-Python基础知识（三）————列表和元组" class="ui main container article-type-post">
+
+    
+
+    <div class="ui divided grid">
+
+        <div class="two column row" id="article-content">
+
+            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
+                
+
+<h1 class="ui header">
+    
+    Python基础知识（三）————列表和元组
+</h1>
+
+
+
+                <div class="article-inner">
+
+                    <div class="article-entry" itemprop="articleBody">
+                        
+                        <a id="more"></a>
+
+<p><strong>&#x4E00;. &#x5217;&#x8868;</strong></p>
+<p>&#xFF08;&#x4E00;&#xFF09;.&#x57FA;&#x672C;&#x6982;&#x5FF5;&#xFF1A;</p>
+<ol class="ui list">
+<li>&#x5E8F;&#x5217;&#xFF1A;&#x6210;&#x5458;&#x6709;&#x5E8F;&#x6392;&#x5217;&#x7684;&#xFF0C;&#x4E14;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E0B;&#x6807;&#x504F;&#x79FB;&#x91CF;&#x8BBF;&#x95EE;&#x5230;&#x5B83;&#x7684;&#x4E00;&#x4E2A;&#x6216;&#x8005;&#x51E0;&#x4E2A;&#x6210;&#x5458;&#xFF0C;&#x8FD9;&#x7C7B;&#x7C7B;&#x578B;&#x7684;&#x7EDF;&#x79F0;&#x4E3A;&#x5E8F;&#x5217;&#x3002;&#x5E8F;&#x5217;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x5305;&#x62EC;&#xFF1A;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x5217;&#x8868;&#x548C;&#x5143;&#x7EC4;&#x7C7B;&#x578B;&#x3002;<br>&#x7279;&#x70B9;&#xFF1A; &#x6210;&#x5458;&#x5173;&#x7CFB;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x8FDE;&#x63A5;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x91CD;&#x590D;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x7D22;&#x5F15;&#xFF0C;&#x5207;&#x7247;&#x64CD;&#x4F5C;&#x7B26;&#x3002;</li>
+<li>&#x6570;&#x7EC4;&#xFF1A;&#x5B58;&#x50A8;&#x540C;&#x4E00;&#x79CD;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x7684;&#x96C6;&#x5408;&#x3002;</li>
+<li>&#x5217;&#x8868;&#xFF1A;&#x6253;&#x4E86; &#x201C;&#x6FC0;&#x7D20;&#x201D; &#x7684;&#x6570;&#x7EC4; &#x2014;&#x2013;&#x53EF;&#x4EE5;&#x5B58;&#x50A8;&#x4EFB;&#x610F;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x7684;&#x96C6;&#x5408;&#x3002;<br>&#x6BD4;&#x5982;  &#x5224;&#x65AD;&#x56DB;&#x5B63;&#xFF1A; &#x8F93;&#x5165;&#x6708;&#x4EFD;&#x5224;&#x65AD;&#x5BF9;&#x5E94;&#x7684;&#x5B63;&#x8282;&#x3002;<br>&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;<br><img src="https://img-blog.csdnimg.cn/20190517224123218.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></li>
+</ol>
+<p>&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;<br><a class="magnific-img" href="https://img-blog.csdnimg.cn/20190517224153449.PNG"><img src="https://img-blog.csdnimg.cn/20190517224153449.PNG" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;" class="ui centered image"></a></p>
+<p><a class="magnific-img" href="https://img-blog.csdnimg.cn/20190517224208650.PNG"><img src="https://img-blog.csdnimg.cn/20190517224208650.PNG" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;" class="ui centered image"></a><br><a class="magnific-img" href="https://img-blog.csdnimg.cn/20190517224226605.PNG"><img src="https://img-blog.csdnimg.cn/20190517224226605.PNG" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;" class="ui centered image"></a><br>   &#xFF08;&#x4E8C;&#xFF09;&#x5217;&#x8868;&#x7684;&#x7279;&#x6027;</p>
+<ol class="ui list">
+<li>&#x5217;&#x8868;&#x7684;&#x6DFB;&#x52A0;<br>.append(&#x662F;&#x5728;&#x5217;&#x8868;&#x7684;&#x6700;&#x540E;&#x8FFD;&#x52A0;&#x5143;&#x7D20;)<br>  .extend(&#x62C9;&#x4F38;&#xFF0C;&#x8FFD;&#x52A0;&#x591A;&#x4E2A;&#x5143;&#x7D20;&#x5230;&#x5217;&#x8868;&#x4E2D;)<br>  .insert(&#x6DFB;&#x52A0;&#x5143;&#x7D20;&#x5230;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;)</li>
+<li>&#x5217;&#x8868;&#x7684;&#x5220;&#x9664;<br>.pop(&#x5F39;&#x51FA;&#xFF0C;&#x9ED8;&#x8BA4;&#x5220;&#x9664;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x4E5F;&#x53EF;&#x901A;&#x8FC7;&#x4F20;&#x503C;&#x6307;&#x5B9A;&#x8981;&#x5220;&#x9664;&#x7684;&#x5143;&#x7D20;&#x3002;) .remove(&#x6839;&#x636E;&#x5143;&#x7D20;&#x503C;&#x8FDB;&#x884C;&#x5220;&#x9664;&#xFF0C;&#x5220;&#x9664;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x6307;&#x5B9A;&#x5143;&#x7D20;)<br>.clear(&#x6E05;&#x7A7A;&#x5217;&#x8868;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;)<br>.del() </li>
+<li>&#x5217;&#x8868;&#x7684;&#x66F4;&#x6539;     &#x8FD0;&#x7528;&#x7D22;&#x5F15;&#x548C;&#x5207;&#x7247;&#x7684;&#x65B9;&#x6CD5;</li>
+<li>&#x5217;&#x8868;&#x7684;&#x67E5;&#x627E;&#xFF1A;<br>.count  &#x67E5;&#x770B;&#x67D0;&#x4E2A;&#x5217;&#x5143;&#x7D20;&#x51FA;&#x73B0;&#x7684;&#x6B21;&#x6570;<br>.index    &#x67E5;&#x770B;&#x67D0;&#x4E2A;&#x5217;&#x8868;&#x5143;&#x7D20;&#x7684;&#x4E0B;&#x6807;&#x7528;index&#x65B9;&#x6CD5;&#x3002;<br>eg .<br><img src="https://img-blog.csdnimg.cn/20190519212543197.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"><br>&#x5B9E;&#x9A8C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;<br><img src="https://img-blog.csdnimg.cn/20190519212608810.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></li>
+</ol>
+<p><strong>&#x4E8C;. &#x5143;&#x7EC4;    **&#x201C;&#x5E26;&#x4E86;&#x7D27;&#x7B8D;&#x5492;&#x7684;&#x5217;&#x8868;</strong>&#x201D;**<br>  1.&#x5B9A;&#x4E49;&#x65B9;&#x6CD5;<br>  &#xFF08;1&#xFF09;&#x5B9A;&#x4E49;&#x7A7A;&#x5143;&#x7EC4;&#xFF1A;tuple = ()<br>  &#xFF08;2&#xFF09;&#x5B9A;&#x4E49;&#x5355;&#x4E2A;&#x503C;&#x7684;&#x5143;&#x7EC4;<br>     eg. tuple=(python,)<br>     (3)  &#x4E00;&#x822C;&#x7684;&#x5143;&#x7EC4; tuple = (python, 8 )</p>
+<ol start="2" class="ui list">
+<li>&#x7279;&#x6027;&#xFF1A;<br>&#x8FDE;&#x63A5;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x91CD;&#x590D;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x6210;&#x5458;&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x7D22;&#x5F15;&#xFF0C;&#x5207;&#x7247;&#x3002;</li>
+</ol>
+<p><strong>&#x6CE8;&#xFF1A; &#x4E0D;&#x80FD;&#x5BF9;&#x5143;&#x7EC4;&#x7684;&#x503C;&#x4EFB;&#x610F;&#x66F4;&#x6539;&#x3002;</strong><br>eg:<br><a class="magnific-img" href="https://img-blog.csdnimg.cn/20190519200837406.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70"><img src="https://img-blog.csdnimg.cn/20190519200837406.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;" class="ui centered image"></a><br><a class="magnific-img" href="https://img-blog.csdnimg.cn/20190519200826234.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70"><img src="https://img-blog.csdnimg.cn/20190519200826234.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;" class="ui centered image"></a><br><strong>&#x5143;&#x7EC4;&#x7684;&#x5404;&#x79CD;&#x7279;&#x6027;&#x4E3E;&#x4F8B;&#xFF1A;</strong><br>&#xFF08;1&#xFF09; &#x5143;&#x7EC4;&#x7684;&#x521B;&#x5EFA;&#xFF1A;<br><a class="magnific-img" href="https://img-blog.csdnimg.cn/20190519201350913.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70"><img src="https://img-blog.csdnimg.cn/20190519201350913.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;" class="ui centered image"></a><br>&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#xFF1A;</p>
+<p><a class="magnific-img" href="https://img-blog.csdnimg.cn/20190519201420664.PNG"><img src="https://img-blog.csdnimg.cn/20190519201420664.PNG" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;" class="ui centered image"></a><br>&#xFF08;2&#xFF09;&#x5143;&#x7EC4;&#x7684;&#x6DFB;&#x52A0;&#xFF1A;<br><a class="magnific-img" href="https://img-blog.csdnimg.cn/20190519201851457.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70"><img src="https://img-blog.csdnimg.cn/20190519201851457.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;" class="ui centered image"></a><br>&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#xFF1A;<br><a class="magnific-img" href="https://img-blog.csdnimg.cn/20190519201915329.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70"><img src="https://img-blog.csdnimg.cn/20190519201915329.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;" class="ui centered image"></a></p>
+<p><em>3.&#x5143;&#x7EC4;&#x7684;&#x591A;&#x5143;&#x8D4B;&#x503C;&#x673A;&#x5236;&#x3002;</em><br><a class="magnific-img" href="https://img-blog.csdnimg.cn/20190519202611687.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70"><img src="https://img-blog.csdnimg.cn/20190519202611687.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;" class="ui centered image"></a><br>&#x8FD0;&#x884C;&#x7ED3;&#x679C;&#xFF1A;<br><a class="magnific-img" href="https://img-blog.csdnimg.cn/20190519202645597.PNG"><img src="https://img-blog.csdnimg.cn/20190519202645597.PNG" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;" class="ui centered image"></a></p>
+<p>eg. &#x5728;&#x6BD4;&#x8D5B;&#x4E2D;&#x8BA1;&#x7B97;&#x9009;&#x624B;&#x7684;&#x6210;&#x7EE9;&#xFF0C;&#x901A;&#x5E38;&#x4F1A;&#x53BB;&#x6389;&#x8BC4;&#x59D4;&#x7684;&#x4E00;&#x4E2A;&#x6700;&#x9AD8;&#x5206;&#x548C;&#x4E00;&#x4E2A;&#x6700;&#x4F4E;&#x5206;&#xFF0C;&#x7136;&#x540E;&#xFF0C;&#x5C06;&#x5269;&#x4E0B;&#x7684;&#x5206;&#x6570;&#x7B97;&#x51FA;&#x5E73;&#x5747;&#x503C;&#xFF0C;&#x5373;&#x4E3A;&#x8BE5;&#x9009;&#x624B;&#x7684;&#x6700;&#x7EC8;&#x5F97;&#x5206;&#x3002;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x4E5F;&#x53EF;&#x7528;&#x5143;&#x7EC4;&#x6765;&#x5B9E;&#x73B0; &#x3002;<br>&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>tuple =(100,99,80,100,90,87)
+t = list(tuple)
+t.sort()
+minSore , *middleScore,maxScore = t
+print(minSore)
+print(maxScore)
+print(middleScore)</code></pre><p>  &#x5B9E;&#x9A8C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;<br><a class="magnific-img" href="https://img-blog.csdnimg.cn/20190519203822676.PNG"><img src="https://img-blog.csdnimg.cn/20190519203822676.PNG" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;" class="ui centered image"></a><br><strong><strong><em>&#x6CE8;&#xFF1A;&#x5728; *middleScore &#x4E2D;&#x7684;    *   &#x8868;&#x793A;&#x8BE5;&#x53D8;&#x91CF;&#x4E2D;&#x5B58;&#x50A8;&#x7684;&#x6570;&#x636E;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;&#x3002;</em></strong></strong></p>
+<p>4.&#x547D;&#x540D;&#x5143;&#x7EC4; &#xFF08;namedtuple)<br>    (1)&#x7528;&#x6CD5;&#xFF1A;<br>      collection.namedtuple(typename,field_names)<br>    &#x5176;&#x4E2D;&#xFF1A;typename:&#x7C7B;&#x540D;&#x79F0;<br>          field_names : &#x5143;&#x7EC4;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x540D;&#x79F0;<br>      (2) &#x547D;&#x540D;&#x5143;&#x7EC4;&#x7684;&#x5C5E;&#x6027;&#x3002;<br>       &#x7C7B;&#x5C5E;&#x6027;&#xFF1A;_fileds : &#x5305;&#x542B;&#x8FD9;&#x4E2A;&#x7C7B;&#x6240;&#x6709;&#x5B57;&#x6BB5;&#x540D;&#x7684;&#x5143;&#x7EC4;&#x3002;<br>       &#x7C7B;&#x65B9;&#x6CD5;&#xFF1A;_make(iterable) :&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x53EF;&#x8FED;&#x4EE3;&#x7684;&#x5BF9;&#x8C61;&#x6765;&#x4EA7;&#x751F;&#x8FD9;&#x4E2A;&#x5B9E;&#x4F8B;&#x3002;<br>        &#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;&#xFF1A; _replace  &#x7528;&#x4E8E;&#x4FEE;&#x6539;&#x5B9E;&#x4F8B;&#x7684;&#x5C5E;&#x6027;&#x3002;</p>
+<p>eg.</p>
+<pre><code>import collections
+#&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x547D;&#x540D;&#x5143;&#x7EC4;&#x7684;&#x7C7B;&#xFF0C;&#x7C7B;&#x540D;&#x4E3A;User&#xFF0C;&#x5C5E;&#x6027;&#x6709;&#x4E09;&#x4E2A;&#xFF0C;&#x5206;&#x522B;&#x4E3A;&#xFF1A;name , password,scores.
+
+User = collections.namedtuple(&quot;User&quot;, [&apos;name&apos;, &apos;password&apos;, &apos;scores&apos;])
+#&#x4E3E;&#x4E00;&#x4E2A;&#x5177;&#x4F53;&#x5B9E;&#x4F8B;&#xFF1A;&#x540D;&#x4E3A;root ,&#x7B49;&#x4FE1;&#x606F;&#x5199;&#x5165;&#x547D;&#x540D;&#x5143;&#x7EC4;&#x4E2D;&#x3002;
+
+user = User(&quot;root&quot;, &quot;westos&quot;, [100, 100, 100])
+
+#&#x6253;&#x5370;&#xFF08;&#x67E5;&#x770B;&#xFF09; root &#x5BF9;&#x5E94;&#x7684;&#x5404;&#x79CD;&#x4FE1;&#x606F;&#x3002;
+print(user)
+print(user.name)
+print(user.password)
+print(user.scores)
+
+
+print(user._fields)
+user1 = User._make([&apos;manager&apos;, &quot;westos&quot;, [100, 90, 90]])
+print(user1)
+
+#&#x95F4;&#x63A5;&#x66F4;&#x6539;&#x5C5E;&#x6027;&#x7684;&#x4FE1;&#x606F;&#x3002;
+user2 = user1._replace(name=&quot;sarah&quot;)
+print(user2)</code></pre><p>&#x5B9E;&#x9A8C;&#x7ED3;&#x679C;&#xFF1A;<br>         <a class="magnific-img" href="https://img-blog.csdnimg.cn/20190519210624334.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70"><img src="https://img-blog.csdnimg.cn/20190519210624334.PNG?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;" class="ui centered image"></a></p>
+
+                        
+                    </div>
+
+                    
+                    
+                    
+
+                    <div class="description post-description">
+    <span class="post-description-item">
+        <time datetime="2019-07-25T02:25:44.000Z" itemprop="datePublished">2019-07-25</time>
+
+    </span>
+    <span class="post-description-item">
+        
+    </span>
+</div>
+
+                </div>
+                
+                <div id="pagination" class="nav-web ui text container pagination">
+
+    <div class="ui stackable two column divided grid container">
+        <div class="row">
+            <div class="column nav-left">
+                
+
+                <a class="ui tiny button disabled"><i class="angle left icon"></i>Previous</a>
+
+                
+            </div>
+            <div class="column nav-right">
+                
+
+                <a href="/2019/07/25/Python基础知识（二）——字符串/" class="ui tiny button">
+                    
+                    Python基础知识（二）——字符串
+                    
+                    <i class="angle right icon"></i></a>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+                
+            </div>
+
+            
+            <div class="three wide computer three wide tablet column">
+
+                <div class="ui sticky article-toc" id="article-toc">
+                    <!-- toc -->
+                    
+                </div>
+
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="ui vertical footer segment">
+    <div class="ui center aligned container">
+        <div class="ui inverted section divider"></div>
+        &copy; 2019 <a href="/">Fancy</a>,
+        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a href="http://hexo.io/" target="_blank">Hexo</a>.
+    </div>
+</div>
+
+    </div>
+
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
+
+<script src="/js/semantic-ui-algolia.js"></script>
+
+<script src="/js/aloha-events.js"></script>
+
+
+
+</body>
+</html>
