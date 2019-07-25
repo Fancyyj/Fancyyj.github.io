@@ -1,0 +1,272 @@
+
+
+<!DOCTYPE html>
+<html lang>
+<head prefix="og: http://ogp.me/ns#"><meta name="generator" content="Hexo 3.9.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content>
+    <title>Python基础知识（八）————模块与包 | Fancy</title>
+
+    <!-- Open Graph -->
+    <meta name="description" content="&amp;#x4E00;. &amp;#x6A21;&amp;#x5757;1.&amp;#x5B9A;&amp;#x4E49;&amp;#xFF1A;&amp;#x6A21;&amp;#x5757;&amp;#x5C31;&amp;#x662F;&amp;#x5DE5;&amp;#x5177;&amp;#x5305;&amp;#xFF0C;&amp;#x8981;&amp;#x60F3;&amp;#x4F7F;&amp;#x7528;&amp;#x8FD9;&amp;#x4E2A;&amp;#x5DE5;&amp;#x5177;&amp;#x5305;&amp;#x4E2D;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python基础知识（八）————模块与包">
+<meta property="og:url" content="http://yoursite.com/2019/07/25/Python基础知识（八）————模块与包/index.html">
+<meta property="og:site_name" content="Fancy">
+<meta property="og:description" content="&amp;#x4E00;. &amp;#x6A21;&amp;#x5757;1.&amp;#x5B9A;&amp;#x4E49;&amp;#xFF1A;&amp;#x6A21;&amp;#x5757;&amp;#x5C31;&amp;#x662F;&amp;#x5DE5;&amp;#x5177;&amp;#x5305;&amp;#xFF0C;&amp;#x8981;&amp;#x60F3;&amp;#x4F7F;&amp;#x7528;&amp;#x8FD9;&amp;#x4E2A;&amp;#x5DE5;&amp;#x5177;&amp;#x5305;&amp;#x4E2D;">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190609124558536.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190610174527959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20190610174158181.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-07-25T03:40:07.684Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python基础知识（八）————模块与包">
+<meta name="twitter:description" content="&amp;#x4E00;. &amp;#x6A21;&amp;#x5757;1.&amp;#x5B9A;&amp;#x4E49;&amp;#xFF1A;&amp;#x6A21;&amp;#x5757;&amp;#x5C31;&amp;#x662F;&amp;#x5DE5;&amp;#x5177;&amp;#x5305;&amp;#xFF0C;&amp;#x8981;&amp;#x60F3;&amp;#x4F7F;&amp;#x7528;&amp;#x8FD9;&amp;#x4E2A;&amp;#x5DE5;&amp;#x5177;&amp;#x5305;&amp;#x4E2D;">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20190609124558536.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70">
+
+    <script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Person",
+  "email": "mailto:",
+  "image": "",
+  "name": "Fancy",
+  "url": "http://yoursite.com"
+}
+</script>
+    <script>
+    var algoliaEnabled = false;
+    
+</script>
+
+    
+
+    
+    
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    
+    
+    
+        <!-- stylesheets list from config.yml -->
+        
+        <link rel="stylesheet" href="/css/aloha.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.css">
+        
+        <link rel="stylesheet" href="//cdn.bootcss.com/magnific-popup.js/1.1.0/magnific-popup.min.css">
+        
+    
+
+</head>
+<body id="body" style="margin-bottom: 0;" class="pushable">
+
+    <div class="ui top fixed menu">
+        <a class="item" id="menu-icon"><i class="sidebar icon"></i></a>
+    </div>
+
+    <div id="menu-sidebar" class="ui left vertical sidebar menu">
+
+    <div id="sidebar-top">
+        <div class="content">
+            <h3>Fancy</h3>
+        </div>
+    </div>
+    <div class="ui container sidebar-card">
+    <div class="ui people shape content">
+        <div class="active side">
+            <div class="ui card">
+                <div class="image">
+                    <img class="ui medium bordered image" src="/images/avatar.jpg">
+                </div>
+                <div class="content">
+                    <a class="header">Fancy</a>
+                    
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                        
+                    </div>
+
+                </div>
+                <div class="extra content">
+                    <div class="ui list">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+    
+    
+
+    
+
+    
+    <a href="/index.html" class="item">
+        <i class="home icon"></i>
+        HOME
+    </a>
+
+    
+
+    
+</div>
+
+    <div class="pusher body-content">
+        <div id="content" class="ui main container">
+            <!--<div class="ui one column grid">-->
+                <!--<div class="column">-->
+                    <!--<div class="ui main container">-->
+                        <div id="post-Python基础知识（八）————模块与包" class="ui main container article-type-post">
+
+    
+
+    <div class="ui divided grid">
+
+        <div class="two column row" id="article-content">
+
+            <div class="thirteen wide computer thirteen wide tablet sixteen wide mobile column">
+                
+
+<h1 class="ui header">
+    
+    Python基础知识（八）————模块与包
+</h1>
+
+
+
+                <div class="article-inner">
+
+                    <div class="article-entry" itemprop="articleBody">
+                        
+                        <a id="more"></a>
+
+
+
+<p><strong>&#x4E00;. &#x6A21;&#x5757;</strong><br>1.&#x5B9A;&#x4E49;&#xFF1A;&#x6A21;&#x5757;&#x5C31;&#x662F;&#x5DE5;&#x5177;&#x5305;&#xFF0C;&#x8981;&#x60F3;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;&#x5DE5;&#x5177;&#x5305;&#x4E2D;&#x7684;&#x5DE5;&#x5177;&#xFF08;&#x597D;&#x6BD4;&#x662F;&#x51FD;&#x6570;&#xFF09;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x5BFC;&#x5165;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x3002;<br>&#xFF08;&#x6A21;&#x5757;&#x662F;&#x975E;&#x5E38;&#x7B80;&#x5355;&#x7684;Python&#x6587;&#x4EF6;&#xFF0C;&#x5355;&#x4E2A;python&#x6587;&#x4EF6;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x4E24;&#x4E2A;&#x6587;&#x4EF6;&#x5C31;&#x662F;&#x4E24;&#x4E2A;&#x6A21;&#x5757;&#xFF09;<br>2.&#x6A21;&#x5757;&#x7684;&#x5BFC;&#x5165;&#x65B9;&#x6CD5;&#xFF1A;<br>1&#xFF09; import &#x6A21;&#x5757;1 &#xFF0C; &#x6A21;&#x5757;2<br>2&#xFF09;import &#x6A21;&#x5757;&#x540D;.&#x51FD;&#x6570;&#x540D;<br>3&#xFF09;from &#x6A21;&#x5757;&#x540D; import   &#x51FD;&#x6570;&#x540D; / &#x53D8;&#x91CF;&#x540D;<br>4&#xFF09; import &#x957F;&#x6A21;&#x5757;&#x540D; as &#x77ED;&#x6A21;&#x5757;&#x540D;<br>5&#xFF09; from &#x6A21;&#x5757;&#x540D; import * </p>
+<ol start="3" class="ui list">
+<li>&#x5982;&#x4F55;&#x5B9A;&#x4F4D;&#x6A21;&#x5757;&#xFF1F;&#x5F53;&#x5BFC;&#x5165;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;python&#x89E3;&#x91CA;&#x5668;&#x5BF9;&#x6A21;&#x5757;&#x4F4D;&#x7F6E;&#x641C;&#x7D22;&#x7684;&#x987A;&#x5E8F;&#x4E3A;&#xFF1A;<br>1&#xFF09; &#x5F53;&#x524D;&#x76EE;&#x5F55;<br>2&#xFF09;&#x5982;&#x679C;&#x4E0D;&#x5728;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#xFF0C;python&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x641C;&#x7D22;&#x5728;shell &#x53D8;&#x91CF;PYTHONPATH&#x4E0B;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;<br>3&#xFF09;&#x5982;&#x679C;&#x90FD;&#x627E;&#x4E0D;&#x5230;&#xFF0C;python&#x89E3;&#x91CA;&#x5668;&#x4F1A;&#x770B;&#x9ED8;&#x8BA4;&#x8DEF;&#x5F84;&#xFF0C;UNIX&#x4E0B;&#xFF0C;&#x9ED8;&#x8BA4;&#x8DEF;&#x5F84;&#x4E00;&#x822C;&#x4E3A;  /usr/local/lib/python/<br>4) &#x6A21;&#x5757;&#x641C;&#x7D22;&#x8DEF;&#x5F84;&#x5B58;&#x50A8;&#x5728;system&#x6A21;&#x5757;&#x7684;sys.path&#x53D8;&#x91CF;&#x4E2D;&#x3002;</li>
+</ol>
+<p>Q:  &#x6A21;&#x5757;&#x4E2D;&#x7684; <em>all</em> &#x6709;&#x4EC0;&#x4E48;&#x4F5C;&#x7528;&#xFF1F;<br>A&#xFF1A;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4E2D;&#x6709; all  &#x53D8;&#x91CF;&#xFF0C;&#x90A3;&#x4E48;&#x4E5F;&#x5C31;&#x610F;&#x5473;&#x7740;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x4E0D;&#x4F1A;&#x88AB; from xxx import* &#x4E2D;&#x5BFC;&#x5165;&#x3002;</p>
+<p><strong>&#x4E8C;.  &#x5305;</strong><br>&#x5305;&#x5C06;&#x6709;&#x8054;&#x7CFB;&#x7684;&#x6A21;&#x5757;&#x7EC4;&#x7EC7;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x6709;&#x6548;&#x907F;&#x514D;&#x6A21;&#x5757;&#x540D;&#x79F0;&#x7684;&#x51B2;&#x7A81;&#x95EE;&#x9898;&#xFF0C;&#x8BA9;&#x5E94;&#x7528;&#x7EC4;&#x7EC7;&#x7ED3;&#x6784;&#x66F4;&#x52A0;&#x6E05;&#x6670;&#x3002;<br>&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x7684;python&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x76EE;&#x5F55;&#x7ED3;&#x6784;&#x4E3A;&#xFF1A;</p>
+<p><a class="magnific-img" href="https://img-blog.csdnimg.cn/20190609124558536.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70"><img src="https://img-blog.csdnimg.cn/20190609124558536.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;" class="ui centered image"></a></p>
+<p>&#xFF08;ps &#x5B98;&#x65B9;&#x6587;&#x6863;&#x4E2D;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<p><a class="magnific-img" href="https://img-blog.csdnimg.cn/20190610174527959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70"><img src="https://img-blog.csdnimg.cn/20190610174527959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;" class="ui centered image"></a></p>
+<p>&#xFF09;</p>
+<p><strong>&#x4E09;. &#x81EA;&#x5B9A;&#x4E49;&#x6A21;&#x5757;&#x7684;&#x5236;&#x4F5C;&#x4E0E;&#x53D1;&#x5E03;</strong><br>&#x57FA;&#x672C;&#x6B65;&#x9AA4;&#xFF1A;<br>1&#xFF09;&#x5B9A;&#x4E49;&#x6A21;&#x5757;&#xFF1A;&#x5728;python&#x4E2D;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x5C31;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x6A21;&#x5757;&#x7684;&#x540D;&#x5B57;&#x5C31;&#x662F;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x540D;&#x5B57;&#x3002;<br>2&#xFF09;&#x8C03;&#x8BD5;&#x6A21;&#x5757;<br>3&#xFF09;&#x6D4B;&#x8BD5;&#x6A21;&#x5757;<br>&#x5728;&#x5B9E;&#x9645;&#x7684;&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x5F53;&#x4E00;&#x4E2A;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x7F16;&#x5199;&#x73A9;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x540E;&#xFF0C;&#x4E3A;&#x4E86;&#x8BA9;&#x6A21;&#x5757;&#x80FD;&#x591F;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x8FBE;&#x5230;&#x60F3;&#x8981;&#x7684;&#x6548;&#x679C;&#xFF0C;&#x8FD9;&#x4E2A;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x4F1A;&#x81EA;&#x884C;&#x5728;py &#x6587;&#x4EF6;&#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x4E9B;&#x6D4B;&#x8BD5;&#x4FE1;&#x606F;&#x3002;<br><strong>&#x6A21;&#x5757;&#x53D1;&#x5E03;&#x7684;&#x51C6;&#x5907;&#x5DE5;&#x4F5C;&#xFF1A;</strong><br>1.&#x4E3A;&#x6A21;&#x5757;&#x6587;&#x4EF6;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5E76;&#x5C06;&#x6A21;&#x5757;&#x6587;&#x4EF6;&#x590D;&#x5236;&#x5230;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x4E2D;&#xFF08;&#x4E00;&#x822C;&#xFF0C;&#x6587;&#x4EF6;&#x5939;&#x7684;&#x540D;&#x5B57;&#x548C;&#x6A21;&#x5757;&#x7684;&#x540D;&#x5B57;&#x4E00;&#x6837;&#xFF09;</p>
+<ol start="2" class="ui list">
+<li>&#x5728;&#x6587;&#x4EF6;&#x5939;&#x4E2D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;&#x3010;setup.py&#x3011;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;<br>#&#x4ECE;python&#x53D1;&#x5E03;&#x5DE5;&#x5177;&#x5BFC;&#x5165;&#x201C;setup&#x201D;&#x51FD;&#x6570;<br>from distutils.core import setup</li>
+</ol>
+<p>setup&#xFF08;<br>name = &#x2018;&#x6A21;&#x5757;&#x540D;&#x79F0;&#x2019;&#xFF0C;<br>version = &#x2018;&#x6A21;&#x5757;&#x7684;&#x7248;&#x672C;&#x2019;<br>author =  &#x2018;&#x4F5C;&#x8005;&#x540D;&#x2019;<br>author_email = &#x2018;&#x4F5C;&#x8005;&#x90AE;&#x7BB1;&#x5730;&#x5740;&#x2019;<br>url = &#x2018;&#x5B98;&#x65B9;&#x7F51;&#x7AD9;&#x2019;<br>description = &#x2018;&#x6A21;&#x5757;&#x4ECB;&#x7ECD;&#x2019;<br>&#xFF09;<br>py_modules = [&#x4F60;&#x9700;&#x8981;&#x53D1;&#x5E03;&#x7684;&#x6A21;&#x5757;&#x540D;&#xFF0C;&#x4E0D;&#x9700;&#x8981;.py]</p>
+<p>&#x6A21;&#x5757;&#x7684;&#x53D1;&#x5E03;&#xFF1A;</p>
+<ol class="ui list">
+<li>&#x6784;&#x5EFA;&#x6A21;&#x5757;&#x548C;&#x4E00;&#x4E2A;&#x53D1;&#x5E03;&#x6587;&#x4EF6;<br>python setup.py build<br>pyhon setup.py sddist </li>
+<li>&#x5C06;&#x53D1;&#x5E03;&#x5B89;&#x88C5;&#x5230;&#x4F60;&#x7684;python&#x672C;&#x5730;&#x526F;&#x672C;&#x4E2D;&#x3002;</li>
+<li>&#x53D1;&#x5E03;&#x9884;&#x89C8;&#xFF1A;tree<br><img src="https://img-blog.csdnimg.cn/20190610174158181.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0ZhbmN5eWo=,size_16,color_FFFFFF,t_70" alt="&#x5728;&#x8FD9;&#x91CC;&#x63D2;&#x5165;&#x56FE;&#x7247;&#x63CF;&#x8FF0;"></li>
+</ol>
+<p> <strong>&#x6A21;&#x5757;&#x7684;&#x5B89;&#x88C5;&#x4E0E;&#x4F7F;&#x7528;</strong><br> 1&#xFF09;&#x627E;&#x5230;&#x6A21;&#x5757;&#x7684;&#x538B;&#x7F29;&#x5305;<br> 2&#xFF09; &#x89E3;&#x538B;<br> 3&#xFF09; &#x8FDB;&#x5165;&#x6587;&#x4EF6;&#x5939;<br> 4&#xFF09; &#x6267;&#x884C;&#x547D;&#x4EE4; sudo python setup.py  install </p>
+
+                        
+                    </div>
+
+                    
+                    
+                    
+
+                    <div class="description post-description">
+    <span class="post-description-item">
+        <time datetime="2019-07-25T03:38:31.000Z" itemprop="datePublished">2019-07-25</time>
+
+    </span>
+    <span class="post-description-item">
+        
+    </span>
+</div>
+
+                </div>
+                
+                <div id="pagination" class="nav-web ui text container pagination">
+
+    <div class="ui stackable two column divided grid container">
+        <div class="row">
+            <div class="column nav-left">
+                
+
+                <a class="ui tiny button disabled"><i class="angle left icon"></i>Previous</a>
+
+                
+            </div>
+            <div class="column nav-right">
+                
+
+                <a href="/2019/07/25/Python基础知识（七）————高级特性/" class="ui tiny button">
+                    
+                    Python基础知识（七）————高级特性
+                    
+                    <i class="angle right icon"></i></a>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+                
+            </div>
+
+            
+            <div class="three wide computer three wide tablet column">
+
+                <div class="ui sticky article-toc" id="article-toc">
+                    <!-- toc -->
+                    
+                </div>
+
+            </div>
+            
+
+        </div>
+    </div>
+</div>
+
+
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+        <div class="ui vertical footer segment">
+    <div class="ui center aligned container">
+        <div class="ui inverted section divider"></div>
+        &copy; 2019 <a href="/">Fancy</a>,
+        Powered by <a href="https://github.com/henryhuang/hexo-theme-aloha" target="_blank">Aloha</a> and <a href="http://hexo.io/" target="_blank">Hexo</a>.
+    </div>
+</div>
+
+    </div>
+
+
+
+
+<!-- scripts list from theme config.yml -->
+
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+
+<script src="//cdn.bootcss.com/semantic-ui/2.2.4/semantic.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch/3.18.1/algoliasearch.min.js"></script>
+
+<script src="//cdn.bootcss.com/algoliasearch-helper-js/2.13.0/algoliasearch.helper.min.js"></script>
+
+<script src="/js/semantic-ui-algolia.js"></script>
+
+<script src="/js/aloha-events.js"></script>
+
+
+
+</body>
+</html>
